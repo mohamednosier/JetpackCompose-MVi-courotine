@@ -13,14 +13,14 @@ import com.mohamed.nosier.kotlin.android.categoriescompose.R
 
 @Composable
 fun ReposTopBar(onBackButtonClicked: () -> Unit) {
-    TopAppBar(
-        title = { Text(text = stringResource(R.string.subCategories_screen_top_bar_title)) },
-        navigationIcon = {
-            IconButton(onClick = { onBackButtonClicked() }) {
-                Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = null)
-            }
-        }
-    )
+//    TopAppBar(
+//        title = { Text(text = stringResource(R.string.subCategories_screen_top_bar_title)) },
+//        navigationIcon = {
+//            IconButton(onClick = { onBackButtonClicked() }) {
+//                Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = null)
+//            }
+//        }
+//    )
 }
 
 @Preview(showBackground = true)

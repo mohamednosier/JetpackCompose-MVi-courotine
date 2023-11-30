@@ -43,7 +43,9 @@ fun SubCategoriesListItem(subCategories: SubCategories) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(5.dp).background(Color.White)
+            .padding(5.dp)
+            .clip(shape = RoundedCornerShape(5.dp))
+            .background(Color.White, shape = RoundedCornerShape(5.dp))
             .clip(shape = RoundedCornerShape(20.dp))
     ) {
         Row(

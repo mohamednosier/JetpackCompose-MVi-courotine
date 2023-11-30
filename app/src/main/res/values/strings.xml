@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Github Compose</string>
     <string name="categories_list_header">Categories</string>
-    <string name="categories_screen_top_bar_title">Categories</string>
+    <string name="categories_screen_top_bar_title">ُEvent Builder </string>
+    <string name="headline">ُAdd to your Event to view our cost Estimate </string>
     <string name="subCategories_screen_top_bar_title">SubCategories</string>
     <string name="subCategories_score_title">SubCategories</string>
     <string name="network_error_description">A network error occurred. Check your connection or try again</string>

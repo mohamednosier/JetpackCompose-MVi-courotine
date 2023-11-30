@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.mohamed.nosier.kotlin.android.categoriescompose.data.model.Categories
 import com.mohamed.nosier.kotlin.android.categoriescompose.ui.feature.common.RoundedImage
@@ -30,13 +31,14 @@ fun CategoriesListItem(
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(5.dp).background(Color.White)
-                .clip(shape = RoundedCornerShape(20.dp))
-
+                .padding(5.dp)
+                .clip(shape = RoundedCornerShape(5.dp))
+                .background(Color.White, shape = RoundedCornerShape(5.dp))
                 .clickable {
                     onItemClick(categories)
                 }
         ) {
+
             Column(
                 verticalArrangement = Arrangement.Center,
                 modifier = Modifier
