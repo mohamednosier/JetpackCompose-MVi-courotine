@@ -1,5 +1,6 @@
 package com.mohamed.nosier.kotlin.android.categoriescompose.ui.feature.subCategories
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.mohamed.nosier.kotlin.android.categoriescompose.data.CategoriesRepository
 import com.mohamed.nosier.kotlin.android.categoriescompose.ui.base.BaseViewModel
@@ -9,7 +10,7 @@ class SubCategoriesViewModel(
     private val id: String,
     private val categoriesRepository: CategoriesRepository
 ) : BaseViewModel<SubCategoriesContract.Event, SubCategoriesContract.State, SubCategoriesContract.Effect>() {
-
+    val debtCategory = MutableLiveData<String>()
     init { getAll() }
 
     override fun setInitialState() = SubCategoriesContract.State(
@@ -36,8 +37,8 @@ class SubCategoriesViewModel(
 
     private suspend fun getSubCategories() {
         setState { copy(isSubCategoriesLoading = true, isError = false) }
-
-        categoriesRepository.getSubCategories(id)
+        debtCategory.value =id
+            categoriesRepository.getSubCategories(id)
             .onSuccess { subCategories ->
                 setState { copy(subCategoriesList = subCategories, isSubCategoriesLoading = false) }
             }

@@ -26,15 +26,30 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mohamed.nosier.kotlin.android.categoriescompose.R
 import com.mohamed.nosier.kotlin.android.categoriescompose.data.model.SubCategories
+import com.mohamed.nosier.kotlin.android.categoriescompose.ui.feature.categories.CategoriesContract
+import com.mohamed.nosier.kotlin.android.categoriescompose.ui.feature.categories.CategoriesViewModel
+import com.mohamed.nosier.kotlin.android.categoriescompose.ui.feature.categories.composables.CategoriesScreen
+import com.mohamed.nosier.kotlin.android.categoriescompose.ui.feature.subCategories.SubCategoriesViewModel
+import org.koin.androidx.compose.getViewModel
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun SubCategoriesList(
     subCategoriesList: List<SubCategories>
 ) {
+    val viewModel = getViewModel<CategoriesViewModel>()
+    val viewModel2 = getViewModel<SubCategoriesViewModel>()
+    val state1 = viewModel.viewState.value.categories
+
     var sum=0
+    var title=""
     subCategoriesList.forEach {
 sum=it.avgBudget+sum
+    }
+    state1.forEach {
+       if(it.id== Integer.parseInt(viewModel2.debtCategory.value.toString())){
+           title=it.title
+       }
     }
 
     Column(
@@ -51,7 +66,7 @@ sum=it.avgBudget+sum
         )
         {
             Text(
-                text = stringResource(R.string.categories_screen_top_bar_title),
+                text = title,
                 style = MaterialTheme.typography.subtitle2,
             )
         }
