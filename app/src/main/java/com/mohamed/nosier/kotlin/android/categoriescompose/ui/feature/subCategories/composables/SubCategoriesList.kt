@@ -32,6 +32,11 @@ import com.mohamed.nosier.kotlin.android.categoriescompose.data.model.SubCategor
 fun SubCategoriesList(
     subCategoriesList: List<SubCategories>
 ) {
+    var sum=0
+    subCategoriesList.forEach {
+sum=it.avgBudget+sum
+    }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -40,7 +45,9 @@ fun SubCategoriesList(
 
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.fillMaxWidth().padding(top = 20.dp)
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 20.dp)
         )
         {
             Text(
@@ -50,11 +57,26 @@ fun SubCategoriesList(
         }
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.fillMaxWidth().padding(top = 20.dp)
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 20.dp)
         )
         {
             Text(
                 text = stringResource(R.string.headline),
+                style = MaterialTheme.typography.subtitle2,
+                color = Color.DarkGray
+            )
+        }
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 20.dp)
+        )
+
+        {
+            Text(text ="$"+sum ,
                 style = MaterialTheme.typography.subtitle2,
                 color = Color.DarkGray
             )
